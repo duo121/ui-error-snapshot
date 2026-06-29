@@ -114,6 +114,8 @@ npx @ui-error-snapshot/cli check
 
 See [`adapters/`](./adapters/) for Cursor, Codex, Claude Code, and OpenCode snippets.
 
+**npm publish:** [docs/PUBLISHING.md](./docs/PUBLISHING.md) · [docs/PUBLISHING.zh-CN.md](./docs/PUBLISHING.zh-CN.md)
+
 ## Packages
 
 | Package | Role |

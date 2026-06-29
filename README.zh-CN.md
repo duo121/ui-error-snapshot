@@ -114,6 +114,8 @@ npx @ui-error-snapshot/cli check
 
 Cursor、Codex、Claude Code、OpenCode 片段见 [`adapters/`](./adapters/)。
 
+**npm 发布：** [docs/PUBLISHING.zh-CN.md](./docs/PUBLISHING.zh-CN.md) · [docs/PUBLISHING.md](./docs/PUBLISHING.md)
+
 ## 包
 
 | 包 | 作用 |
