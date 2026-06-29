@@ -167,10 +167,17 @@ See [`adapters/`](./adapters/) for Cursor, Codex, Claude Code, and OpenCode snip
 
 ## Roadmap
 
-- [x] Phase 1 — core + file sink + CLI + tests
-- [ ] Phase 2 — MCP server (`read_snapshot`, `clear_snapshot`)
-- [ ] Phase 3 — per-IDE adapter polish + OpenCode extension research
-- [ ] Phase 4 — optional watch / multi-workspace filenames
+Full plan: [docs/ROADMAP.md](./docs/ROADMAP.md) · [中文](./docs/路线图_ROADMAP.zh-CN.md)
+
+| Phase | Status | Highlights |
+|-------|--------|------------|
+| **Phase 1** — core + sink + hook + CLI + npm | ✅ ~95% | `@duo121/*@0.1.0` live; CLI `0.1.1` bin fix pending |
+| **Phase 1.5** — docs & onboarding | ✅ ~90% | one-line agent prompt, hero/demo images; runnable example TBD |
+| **Phase 2** — MCP server | ⏳ 0% | `read` / `clear` / `probe` / `path` tools |
+| **Phase 3** — IDE adapters | 🔶 ~30% | Cursor / Codex / Claude / OpenCode polish |
+| **Phase 4** — advanced | 📋 planned | watch, multi-workspace, Electron IPC template |
+
+**Suggested next:** publish CLI `0.1.1` → runnable Vite example → Phase 2 MCP.
 
 ## License
 

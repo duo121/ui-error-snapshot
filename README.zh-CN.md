@@ -167,10 +167,17 @@ Cursor、Codex、Claude Code、OpenCode 片段见 [`adapters/`](./adapters/)。
 
 ## 路线图
 
-- [x] Phase 1 — core + file sink + CLI + tests
-- [ ] Phase 2 — MCP server（`read_snapshot`、`clear_snapshot`）
-- [ ] Phase 3 — 各 IDE 适配器完善 + OpenCode 扩展调研
-- [ ] Phase 4 — 可选 watch / 多 workspace 文件名
+详细规划：[docs/路线图_ROADMAP.zh-CN.md](./docs/路线图_ROADMAP.zh-CN.md)
+
+| 阶段 | 状态 | 要点 |
+|------|------|------|
+| **Phase 1** — core + sink + hook + CLI + npm | ✅ ~95% | `@duo121/*@0.1.0` 已发布；CLI `0.1.1` bin 修复待发 |
+| **Phase 1.5** — 文档与开箱体验 | ✅ ~90% | 一句话集成、Hero/演示图；可运行 example 待补 |
+| **Phase 2** — MCP server | ⏳ 0% | `read` / `clear` / `probe` / `path` 四工具 |
+| **Phase 3** — IDE 适配器 | 🔶 ~30% | Cursor / Codex / Claude / OpenCode 规则完善 |
+| **Phase 4** — 高级能力 | 📋 规划 | watch、多 workspace、Electron IPC 模板 |
+
+**建议下一步：** 发布 CLI `0.1.1` → 可运行 Vite example → Phase 2 MCP。
 
 ## License
 
