@@ -73,7 +73,7 @@ Add one paragraph (pick what applies):
 - **Codex / generic**: same in `AGENTS.md`
 - **Claude Code**: same in `CLAUDE.md`
 
-Templates: https://github.com/getagnx/ui-error-snapshot/tree/main/adapters
+Templates: https://github.com/duo121/ui-error-snapshot/tree/main/adapters
 
 ## Step 4: Verification
 
@@ -91,7 +91,7 @@ Templates: https://github.com/getagnx/ui-error-snapshot/tree/main/adapters
 
 ## References
 
-- Repo: https://github.com/getagnx/ui-error-snapshot
+- Repo: https://github.com/duo121/ui-error-snapshot
 - npm packages: `@ui-error-snapshot/*`
 
 **中文版本：** [INTEGRATION_PROMPT.zh-CN.md](./INTEGRATION_PROMPT.zh-CN.md)

@@ -73,7 +73,7 @@ if (import.meta.env?.DEV ?? process.env.NODE_ENV !== "production") {
 - **Codex / 通用**：`AGENTS.md` 同上
 - **Claude Code**：`CLAUDE.md` 同上
 
-模板见：https://github.com/getagnx/ui-error-snapshot/tree/main/adapters
+模板见：https://github.com/duo121/ui-error-snapshot/tree/main/adapters
 
 ## 第四步：验收
 
@@ -91,7 +91,7 @@ if (import.meta.env?.DEV ?? process.env.NODE_ENV !== "production") {
 
 ## 参考
 
-- 仓库：https://github.com/getagnx/ui-error-snapshot
+- 仓库：https://github.com/duo121/ui-error-snapshot
 - npm 包：`@ui-error-snapshot/*`
 
 **English:** [INTEGRATION_PROMPT.en.md](./INTEGRATION_PROMPT.en.md)

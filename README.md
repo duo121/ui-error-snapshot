@@ -72,7 +72,7 @@ Born from production use in [Agnx](https://github.com/getagnx/agnx).
 ## Quick start
 
 ```bash
-git clone https://github.com/getagnx/ui-error-snapshot.git
+git clone https://github.com/duo121/ui-error-snapshot.git
 cd ui-error-snapshot
 npm install
 npm run build
