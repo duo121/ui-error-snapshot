@@ -1,0 +1,23 @@
+{
+  "name": "@ui-error-snapshot/sink-file",
+  "version": "0.1.0",
+  "description": "File sink for ui-error-snapshot (overwrite write, dev-only)",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": ["dist"],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "dependencies": {
+    "@ui-error-snapshot/core": "0.1.0"
+  },
+  "license": "MIT"
+}

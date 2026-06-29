@@ -1,0 +1,29 @@
+{
+  "name": "ui-error-snapshot",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Capture dev UI crashes to a file agents can read — for Cursor, Codex, Claude Code, OpenCode, and more.",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "tsc -b",
+    "test": "vitest run",
+    "typecheck": "tsc -b",
+    "lint": "npm run typecheck",
+    "ui-error-snapshot": "node packages/cli/dist/cli.js"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "typescript": "^5.7.2",
+    "vitest": "^3.0.0"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/getagnx/ui-error-snapshot"
+  }
+}
