@@ -1,7 +1,6 @@
 # ui-error-snapshot
 
-<!-- Hero 头图：用 GPT Image 2 生成后保存为 docs/assets/hero.png，再取消下行注释 -->
-<!-- ![ui-error-snapshot — Dev 红屏错误自动写入本地，AI Agent 无需截图即可读取](./docs/assets/hero.png) -->
+![ui-error-snapshot — Dev 红屏错误自动写入本地，AI Agent 无需截图即可读取](./docs/assets/hero.jpg)
 
 > 把 Dev 红屏错误写入本地文件，让 AI Agent 直接读取 —— 无需截图。
 
@@ -45,7 +44,7 @@ npx @duo121/ui-error-snapshot-cli check   # 有错误 → exit 1 + 打印 stack
 
 ![CLI check 输出：Agent 直接读到 RangeError 与完整 stack trace](./docs/assets/demo-cli-check.png)
 
-> 上图来自 [Agnx](https://github.com/getagnx/agnx) 真实 dev 场景。你的项目集成后流程相同。
+> 真实 Electron dev 场景截图。你的项目集成后流程相同。
 
 **Hero 头图提示词（GPT Image 2）：** [docs/HERO_IMAGE_PROMPT.zh-CN.md](./docs/HERO_IMAGE_PROMPT.zh-CN.md)
 

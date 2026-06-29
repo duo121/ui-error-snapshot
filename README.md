@@ -1,7 +1,6 @@
 # ui-error-snapshot
 
-<!-- Hero: save GPT Image output as docs/assets/hero.png, then uncomment -->
-<!-- ![ui-error-snapshot — capture dev red-screen errors for AI agents without screenshots](./docs/assets/hero.png) -->
+![ui-error-snapshot — capture dev red-screen errors for AI agents without screenshots](./docs/assets/hero.jpg)
 
 > Dev UI crash snapshots that AI coding agents can read — no screenshots required.
 
@@ -45,7 +44,7 @@ npx @duo121/ui-error-snapshot-cli check   # non-empty → exit 1 + stack on stde
 
 ![CLI check output: agent reads RangeError and full stack trace](./docs/assets/demo-cli-check.png)
 
-> Screenshots from real [Agnx](https://github.com/getagnx/agnx) dev usage. Same flow in your project after integration.
+> Real Electron dev screenshots. Same flow in your project after integration.
 
 **Hero image prompt (GPT Image 2):** [docs/HERO_IMAGE_PROMPT.zh-CN.md](./docs/HERO_IMAGE_PROMPT.zh-CN.md)
 
