@@ -6,7 +6,21 @@ When your dev app hits a red screen, agents usually guess from screenshots or st
 
 Born from production use in [Agnx](https://github.com/getagnx/agnx).
 
-**中文文档：** [README.zh-CN.md](./README.zh-CN.md) · **One-shot agent prompt:** [INTEGRATION_PROMPT.en.md](./docs/INTEGRATION_PROMPT.en.md) · [INTEGRATION_PROMPT.zh-CN.md](./docs/INTEGRATION_PROMPT.zh-CN.md)
+**中文文档：** [README.zh-CN.md](./README.zh-CN.md)
+
+---
+
+## For users: copy this one sentence to your AI
+
+**No need to clone this repo or understand npm.** Copy the paragraph below into Cursor / Codex / Claude Code / any agent:
+
+> Open and fully follow https://github.com/duo121/ui-error-snapshot/blob/main/docs/COPY_FOR_AGENT.en.md (or the Chinese prompt at docs/复制给Agent.zh-CN.md) to integrate ui-error-snapshot into the current project: capture dev uncaught UI errors to `~/.ui-error-snapshot/ui-error-snapshot.txt` for later CLI checks; do not clone the ui-error-snapshot repo or run a separate daemon; finish with probe and check and report which files you changed.
+
+The agent will: `npm install` → wire hooks → add check scripts → add agent rules.
+
+Full prompts: [docs/COPY_FOR_AGENT.en.md](./docs/COPY_FOR_AGENT.en.md) · [docs/复制给Agent.zh-CN.md](./docs/复制给Agent.zh-CN.md)
+
+---
 
 ## Do I need to run a separate project?
 
@@ -20,8 +34,6 @@ Born from production use in [Agnx](https://github.com/getagnx/agnx).
 
 **Not recommended:** cloning this repo into the user project or running ui-error-snapshot as a standalone service.
 
-**For end users:** copy the integration prompt to your agent — see [docs/INTEGRATION_PROMPT.zh-CN.md](./docs/INTEGRATION_PROMPT.zh-CN.md).
-
 ## Architecture
 
 ```
@@ -29,7 +41,7 @@ Born from production use in [Agnx](https://github.com/getagnx/agnx).
 │                     Dev Host Application                      │
 │  Electron · RN Web · Vite · Next · Expo …                     │
 ├──────────────────────────────────────────────────────────────┤
-│  Hook Layer (@duo121/ui-error-snapshot-hook-browser)                 │
+│  Hook Layer (@ui-error-snapshot/hook-browser)                 │
 │  ├─ window.error / unhandledrejection                           │
 │  ├─ ErrorUtils.setGlobalHandler (RN, optional)                  │
 │  └─ window.__uiErrorSnapshotProbe() (dev verification)          │
@@ -37,13 +49,13 @@ Born from production use in [Agnx](https://github.com/getagnx/agnx).
                             │ formatUiError()
                             v
 ┌──────────────────────────────────────────────────────────────┐
-│              @duo121/ui-error-snapshot-core                            │
+│              @ui-error-snapshot/core                            │
 │  normalize · paths · probe marker · dev gate                    │
 └───────────────────────────┬──────────────────────────────────┘
                             │
                             v
 ┌──────────────────────────────────────────────────────────────┐
-│              @duo121/ui-error-snapshot-sink-file                       │
+│              @ui-error-snapshot/sink-file                       │
 │  overwrite write → $UI_ERROR_HOME/ui-error-snapshot.txt         │
 └───────────────────────────┬──────────────────────────────────┘
                             │
@@ -87,8 +99,8 @@ npm run ui-error-snapshot -- path
 ### Browser / Electron renderer
 
 ```ts
-import { installBrowserErrorSnapshot } from "@duo121/ui-error-snapshot-hook-browser";
-import { createFileSink } from "@duo121/ui-error-snapshot-sink-file";
+import { installBrowserErrorSnapshot } from "@ui-error-snapshot/hook-browser";
+import { createFileSink } from "@ui-error-snapshot/sink-file";
 
 const sink = createFileSink();
 
@@ -106,7 +118,7 @@ For Electron, wire `write`/`clear` to your preload IPC instead of direct file I/
 After UI-changing work, agents must run:
 
 ```bash
-npx @duo121/ui-error-snapshot-cli check
+npx @ui-error-snapshot/cli check
 ```
 
 - **Exit 0** — snapshot empty → no uncaught UI error observed  
@@ -120,10 +132,10 @@ See [`adapters/`](./adapters/) for Cursor, Codex, Claude Code, and OpenCode snip
 
 | Package | Role |
 |---------|------|
-| `@duo121/ui-error-snapshot-core` | Formatting, paths, constants |
-| `@duo121/ui-error-snapshot-sink-file` | Node file sink (overwrite) |
-| `@duo121/ui-error-snapshot-hook-browser` | Window + optional RN ErrorUtils hooks |
-| `@duo121/ui-error-snapshot-cli` | `check` · `probe` · `path` · `clear` |
+| `@ui-error-snapshot/core` | Formatting, paths, constants |
+| `@ui-error-snapshot/sink-file` | Node file sink (overwrite) |
+| `@ui-error-snapshot/hook-browser` | Window + optional RN ErrorUtils hooks |
+| `@ui-error-snapshot/cli` | `check` · `probe` · `path` · `clear` |
 
 ## Roadmap
 

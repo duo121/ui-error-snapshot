@@ -6,7 +6,21 @@
 
 源自 [Agnx](https://github.com/getagnx/agnx) 生产实践。
 
-**English:** [README.md](./README.md) · **一键 Agent 提示词：** [INTEGRATION_PROMPT.zh-CN.md](./docs/INTEGRATION_PROMPT.zh-CN.md) · [INTEGRATION_PROMPT.en.md](./docs/INTEGRATION_PROMPT.en.md)
+**English:** [README.md](./README.md)
+
+---
+
+## 用户怎么用？复制这一句话给 AI
+
+**不用 clone 本仓库，不用懂 npm。** 复制下面整段，粘贴给 Cursor / Codex / Claude Code / 任意 Agent：
+
+> 请打开并完整遵循 https://github.com/duo121/ui-error-snapshot/blob/main/docs/复制给Agent.zh-CN.md ，把 ui-error-snapshot 集成到当前项目：dev 环境 uncaught 红屏自动写入 `~/.ui-error-snapshot/ui-error-snapshot.txt`，方便你以后用 CLI 验收；不要 clone ui-error-snapshot 仓库，不要启动额外进程；完成后跑 probe 和 check 验收并告诉我改了哪些文件。
+
+Agent 会自动：`npm install` 依赖 → 改入口 hook → 加 `check` 脚本 → 写 Agent 规则。
+
+完整提示词（给 Agent 读）：[docs/复制给Agent.zh-CN.md](./docs/复制给Agent.zh-CN.md) · [docs/COPY_FOR_AGENT.en.md](./docs/COPY_FOR_AGENT.en.md)
+
+---
 
 ## 需要额外启动一个项目吗？
 
@@ -20,8 +34,6 @@
 
 **不推荐：** 把本仓库 clone 进用户项目，或把 ui-error-snapshot 当作独立服务运行。
 
-**终端用户：** 把集成提示词复制给 Agent —— 见 [docs/INTEGRATION_PROMPT.zh-CN.md](./docs/INTEGRATION_PROMPT.zh-CN.md)。
-
 ## 架构
 
 ```
@@ -29,7 +41,7 @@
 │                     Dev Host Application                      │
 │  Electron · RN Web · Vite · Next · Expo …                     │
 ├──────────────────────────────────────────────────────────────┤
-│  Hook Layer (@duo121/ui-error-snapshot-hook-browser)                 │
+│  Hook Layer (@ui-error-snapshot/hook-browser)                 │
 │  ├─ window.error / unhandledrejection                           │
 │  ├─ ErrorUtils.setGlobalHandler (RN, optional)                  │
 │  └─ window.__uiErrorSnapshotProbe() (dev verification)          │
@@ -37,13 +49,13 @@
                             │ formatUiError()
                             v
 ┌──────────────────────────────────────────────────────────────┐
-│              @duo121/ui-error-snapshot-core                            │
+│              @ui-error-snapshot/core                            │
 │  normalize · paths · probe marker · dev gate                    │
 └───────────────────────────┬──────────────────────────────────┘
                             │
                             v
 ┌──────────────────────────────────────────────────────────────┐
-│              @duo121/ui-error-snapshot-sink-file                       │
+│              @ui-error-snapshot/sink-file                       │
 │  overwrite write → $UI_ERROR_HOME/ui-error-snapshot.txt         │
 └───────────────────────────┬──────────────────────────────────┘
                             │
@@ -87,8 +99,8 @@ npm run ui-error-snapshot -- path
 ### 浏览器 / Electron 渲染进程
 
 ```ts
-import { installBrowserErrorSnapshot } from "@duo121/ui-error-snapshot-hook-browser";
-import { createFileSink } from "@duo121/ui-error-snapshot-sink-file";
+import { installBrowserErrorSnapshot } from "@ui-error-snapshot/hook-browser";
+import { createFileSink } from "@ui-error-snapshot/sink-file";
 
 const sink = createFileSink();
 
@@ -106,7 +118,7 @@ Electron 场景下，请把 `write`/`clear` 接到 preload IPC，而不是在渲
 完成 UI 相关改动后，Agent 必须运行：
 
 ```bash
-npx @duo121/ui-error-snapshot-cli check
+npx @ui-error-snapshot/cli check
 ```
 
 - **Exit 0** — 快照为空 → 未观察到 uncaught UI 错误
@@ -120,10 +132,10 @@ Cursor、Codex、Claude Code、OpenCode 片段见 [`adapters/`](./adapters/)。
 
 | 包 | 作用 |
 |----|------|
-| `@duo121/ui-error-snapshot-core` | 格式化、路径、常量 |
-| `@duo121/ui-error-snapshot-sink-file` | Node 文件 sink（覆盖写） |
-| `@duo121/ui-error-snapshot-hook-browser` | Window + 可选 RN ErrorUtils hooks |
-| `@duo121/ui-error-snapshot-cli` | `check` · `probe` · `path` · `clear` |
+| `@ui-error-snapshot/core` | 格式化、路径、常量 |
+| `@ui-error-snapshot/sink-file` | Node 文件 sink（覆盖写） |
+| `@ui-error-snapshot/hook-browser` | Window + 可选 RN ErrorUtils hooks |
+| `@ui-error-snapshot/cli` | `check` · `probe` · `path` · `clear` |
 
 ## 路线图
 
