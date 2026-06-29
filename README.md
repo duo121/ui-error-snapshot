@@ -160,10 +160,11 @@ See [`adapters/`](./adapters/) for Cursor, Codex, Claude Code, and OpenCode snip
 
 | Package | Role |
 |---------|------|
-| `@ui-error-snapshot/core` | Formatting, paths, constants |
-| `@ui-error-snapshot/sink-file` | Node file sink (overwrite) |
-| `@ui-error-snapshot/hook-browser` | Window + optional RN ErrorUtils hooks |
-| `@ui-error-snapshot/cli` | `check` · `probe` · `path` · `clear` |
+| `@duo121/ui-error-snapshot-core` | Formatting, paths, constants |
+| `@duo121/ui-error-snapshot-sink-file` | Node file sink (overwrite) |
+| `@duo121/ui-error-snapshot-hook-browser` | Window + optional RN ErrorUtils hooks |
+| `@duo121/ui-error-snapshot-cli` | `check` · `probe` · `path` · `clear` |
+| `@duo121/ui-error-snapshot-mcp` | MCP `read` / `clear` / `probe` / `path` |
 
 ## Roadmap
 
@@ -171,9 +172,9 @@ Full plan: [docs/ROADMAP.md](./docs/ROADMAP.md) · [中文](./docs/路线图_ROA
 
 | Phase | Status | Highlights |
 |-------|--------|------------|
-| **Phase 1** — core + sink + hook + CLI + npm | ✅ ~95% | `@duo121/*@0.1.0` live; CLI `0.1.1` bin fix pending |
-| **Phase 1.5** — docs & onboarding | ✅ ~90% | one-line agent prompt, hero/demo images; runnable example TBD |
-| **Phase 2** — MCP server | ⏳ 0% | `read` / `clear` / `probe` / `path` tools |
+| **Phase 1** — core + sink + hook + CLI + npm | ✅ 100% | `@duo121/*` aligned; CLI `0.1.1` published |
+| **Phase 1.5** — docs & onboarding | ✅ 100% | Runnable Vite example |
+| **Phase 2** — MCP server | ✅ ~95% | Code + tests; npm publish TBD |
 | **Phase 3** — IDE adapters | 🔶 ~30% | Cursor / Codex / Claude / OpenCode polish |
 | **Phase 4** — advanced | 📋 planned | watch, multi-workspace, Electron IPC template |
 

@@ -160,10 +160,11 @@ Cursor、Codex、Claude Code、OpenCode 片段见 [`adapters/`](./adapters/)。
 
 | 包 | 作用 |
 |----|------|
-| `@ui-error-snapshot/core` | 格式化、路径、常量 |
-| `@ui-error-snapshot/sink-file` | Node 文件 sink（覆盖写） |
-| `@ui-error-snapshot/hook-browser` | Window + 可选 RN ErrorUtils hooks |
-| `@ui-error-snapshot/cli` | `check` · `probe` · `path` · `clear` |
+| `@duo121/ui-error-snapshot-core` | 格式化、路径、常量 |
+| `@duo121/ui-error-snapshot-sink-file` | Node 文件 sink（覆盖写） |
+| `@duo121/ui-error-snapshot-hook-browser` | Window + 可选 RN ErrorUtils hooks |
+| `@duo121/ui-error-snapshot-cli` | `check` · `probe` · `path` · `clear` |
+| `@duo121/ui-error-snapshot-mcp` | MCP `read` / `clear` / `probe` / `path` |
 
 ## 路线图
 
@@ -171,9 +172,9 @@ Cursor、Codex、Claude Code、OpenCode 片段见 [`adapters/`](./adapters/)。
 
 | 阶段 | 状态 | 要点 |
 |------|------|------|
-| **Phase 1** — core + sink + hook + CLI + npm | ✅ ~95% | `@duo121/*@0.1.0` 已发布；CLI `0.1.1` bin 修复待发 |
-| **Phase 1.5** — 文档与开箱体验 | ✅ ~90% | 一句话集成、Hero/演示图；可运行 example 待补 |
-| **Phase 2** — MCP server | ⏳ 0% | `read` / `clear` / `probe` / `path` 四工具 |
+| **Phase 1** — core + sink + hook + CLI + npm | ✅ 100% | `@duo121/*` 包名统一；CLI `0.1.1` 已发 |
+| **Phase 1.5** — 文档与开箱体验 | ✅ 100% | Vite example 可运行 |
+| **Phase 2** — MCP server | ✅ ~95% | 代码+测试完成；npm 发布待确认 |
 | **Phase 3** — IDE 适配器 | 🔶 ~30% | Cursor / Codex / Claude / OpenCode 规则完善 |
 | **Phase 4** — 高级能力 | 📋 规划 | watch、多 workspace、Electron IPC 模板 |
 

@@ -1,0 +1,26 @@
+{
+  "name": "ui-error-snapshot-vite-react-example",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "check:ui-error-snapshot": "ui-error-snapshot-cli check",
+    "probe:ui-error-snapshot": "ui-error-snapshot-cli probe"
+  },
+  "dependencies": {
+    "@duo121/ui-error-snapshot-hook-browser": "file:../../packages/hook-browser",
+    "@duo121/ui-error-snapshot-sink-file": "file:../../packages/sink-file",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@duo121/ui-error-snapshot-cli": "file:../../packages/cli",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "@vitejs/plugin-react": "^4.3.4",
+    "typescript": "^5.7.2",
+    "vite": "^6.0.0"
+  }
+}

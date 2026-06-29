@@ -1,22 +1,32 @@
-# Vite + React example (sketch)
+# Vite + React 可运行示例
 
-1. Install packages in your app workspace.
-2. In `src/main.tsx` (dev only):
+演示 dev 红屏 → 本地快照 → CLI / MCP 读取。
 
-```ts
-import { installBrowserErrorSnapshot } from "@duo121/ui-error-snapshot-hook-browser";
-import { createFileSink } from "@duo121/ui-error-snapshot-sink-file";
+## 前置
 
-if (import.meta.env.DEV) {
-  const sink = createFileSink({ homeDir: import.meta.env.VITE_UI_ERROR_HOME });
-  installBrowserErrorSnapshot({
-    enabled: true,
-    write: (t) => sink.write(t),
-    clear: () => sink.clear(),
-  });
-}
+在仓库根目录先构建 workspace 包：
+
+```bash
+cd ../..
+npm install
+npm run build
 ```
 
-3. Agent verification: `npx @duo121/ui-error-snapshot-cli check`
+## 运行
 
-A full runnable example will be added in a follow-up PR.
+```bash
+cd examples/vite-react
+npm install
+npm run dev
+```
+
+浏览器打开页面，点击 **Trigger red-screen error**。
+
+另开终端：
+
+```bash
+npm run probe:ui-error-snapshot   # 验证写入链路
+npm run check:ui-error-snapshot   # exit 1 + stack
+```
+
+默认快照路径：`~/.ui-error-snapshot/ui-error-snapshot.txt`

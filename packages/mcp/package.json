@@ -1,12 +1,10 @@
 {
-  "name": "@duo121/ui-error-snapshot-cli",
-  "version": "0.1.1",
-  "description": "CLI to check, probe, and inspect ui-error-snapshot files",
+  "name": "@duo121/ui-error-snapshot-mcp",
+  "version": "0.1.0",
+  "description": "MCP server for ui-error-snapshot — read/clear/probe dev UI crash files",
   "type": "module",
-  "bin": {
-    "ui-error-snapshot-cli": "./dist/cli.js"
-  },
-  "main": "./dist/cli.js",
+  "bin": "./dist/server.js",
+  "main": "./dist/server.js",
   "files": ["dist"],
   "scripts": {
     "build": "tsc -p tsconfig.json",
@@ -15,7 +13,9 @@
   },
   "dependencies": {
     "@duo121/ui-error-snapshot-core": "0.1.0",
-    "@duo121/ui-error-snapshot-sink-file": "0.1.0"
+    "@duo121/ui-error-snapshot-sink-file": "0.1.0",
+    "@modelcontextprotocol/sdk": "^1.20.1",
+    "zod": "^3.24.0"
   },
   "license": "MIT",
   "publishConfig": {
@@ -24,6 +24,6 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/duo121/ui-error-snapshot",
-    "directory": "packages/cli"
+    "directory": "packages/mcp"
   }
 }
