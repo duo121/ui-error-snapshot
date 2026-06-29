@@ -1,11 +1,11 @@
 #!/usr/bin/env node
 // 场景：Agent/CI 检查、探针写入、打印 ui-error-snapshot 路径。
-import { buildProbeMessage, PROBE_MARKER, resolveSnapshotPaths } from "@ui-error-snapshot/core";
+import { buildProbeMessage, PROBE_MARKER, resolveSnapshotPaths } from "@duo121/ui-error-snapshot-core";
 import {
   clearUiErrorSnapshot,
   readUiErrorSnapshot,
   writeUiErrorSnapshot,
-} from "@ui-error-snapshot/sink-file";
+} from "@duo121/ui-error-snapshot-sink-file";
 
 const USAGE = `ui-error-snapshot — dev UI crash file for AI agents
 

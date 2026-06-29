@@ -2,7 +2,7 @@
 
 ## 一次性准备
 
-1. 在 [npmjs.com](https://www.npmjs.com/) 创建账号并加入 `@ui-error-snapshot` scope（首次发布会自动创建 org scope，需账号已验证）。
+1. 在 [npmjs.com](https://www.npmjs.com/) 注册账号（个人 scope 为 `@duo121`，无需单独创建 org）。
 2. 在 GitHub 仓库 **Settings → Secrets → Actions** 添加：
    - `NPM_TOKEN` — npm Access Token（Automation 类型，Publish 权限）
 

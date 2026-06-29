@@ -6,7 +6,7 @@ You are a coding agent. Integrate **ui-error-snapshot** into the **current user 
 
 - The user must **not** clone the ui-error-snapshot repo or run a separate daemon/process.
 - Intrusion budget: **~5 lines in the app entry** + **one package.json script** + **one agent rule paragraph**.
-- After integration you can run `npm run check:ui-error-snapshot` (or `npx @ui-error-snapshot/cli check`); exit code 1 means a red-screen-level error was captured.
+- After integration you can run `npm run check:ui-error-snapshot` (or `npx @duo121/ui-error-snapshot-cli check`); exit code 1 means a red-screen-level error was captured.
 
 ## Contract (required)
 
@@ -28,15 +28,15 @@ Priority order:
 ### Mode A — npm devDependency (recommended)
 
 ```bash
-npm install -D @ui-error-snapshot/hook-browser @ui-error-snapshot/sink-file @ui-error-snapshot/cli
+npm install -D @duo121/ui-error-snapshot-hook-browser @duo121/ui-error-snapshot-sink-file @duo121/ui-error-snapshot-cli
 ```
 
 At the **earliest dev entry** (e.g. `main.tsx`, `_layout.tsx`, `index.js`):
 
 ```ts
 if (import.meta.env?.DEV ?? process.env.NODE_ENV !== "production") {
-  const { createFileSink } = await import("@ui-error-snapshot/sink-file");
-  const { installBrowserErrorSnapshot } = await import("@ui-error-snapshot/hook-browser");
+  const { createFileSink } = await import("@duo121/ui-error-snapshot-sink-file");
+  const { installBrowserErrorSnapshot } = await import("@duo121/ui-error-snapshot-hook-browser");
   const sink = createFileSink();
   installBrowserErrorSnapshot({
     enabled: true,
@@ -92,6 +92,6 @@ Templates: https://github.com/duo121/ui-error-snapshot/tree/main/adapters
 ## References
 
 - Repo: https://github.com/duo121/ui-error-snapshot
-- npm packages: `@ui-error-snapshot/*`
+- npm packages: `@duo121/ui-error-snapshot-*`
 
 **中文版本：** [INTEGRATION_PROMPT.zh-CN.md](./INTEGRATION_PROMPT.zh-CN.md)

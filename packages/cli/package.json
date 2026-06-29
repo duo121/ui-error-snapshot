@@ -1,11 +1,9 @@
 {
   "name": "@ui-error-snapshot/cli",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "CLI to check, probe, and inspect ui-error-snapshot files",
   "type": "module",
-  "bin": {
-    "ui-error-snapshot": "./dist/cli.js"
-  },
+  "bin": "./dist/cli.js",
   "main": "./dist/cli.js",
   "files": ["dist"],
   "scripts": {

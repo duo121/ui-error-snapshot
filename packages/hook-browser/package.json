@@ -1,5 +1,5 @@
 {
-  "name": "@ui-error-snapshot/hook-browser",
+  "name": "@duo121/ui-error-snapshot-hook-browser",
   "version": "0.1.0",
   "description": "Browser / Electron renderer hooks for ui-error-snapshot",
   "type": "module",
@@ -18,7 +18,7 @@
     "prepublishOnly": "npm run build"
   },
   "dependencies": {
-    "@ui-error-snapshot/core": "0.1.0"
+    "@duo121/ui-error-snapshot-core": "0.1.0"
   },
   "license": "MIT",
   "publishConfig": {

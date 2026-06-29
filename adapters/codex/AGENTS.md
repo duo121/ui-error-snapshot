@@ -8,7 +8,7 @@ Add to your repo `AGENTS.md`:
 After frontend or Electron UI changes, before finishing:
 
 ```bash
-npx @ui-error-snapshot/cli check
+npx @duo121/ui-error-snapshot-cli check
 ```
 
 - Exit 0: no uncaught dev UI error recorded.

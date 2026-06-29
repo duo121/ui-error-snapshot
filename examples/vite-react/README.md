@@ -4,8 +4,8 @@
 2. In `src/main.tsx` (dev only):
 
 ```ts
-import { installBrowserErrorSnapshot } from "@ui-error-snapshot/hook-browser";
-import { createFileSink } from "@ui-error-snapshot/sink-file";
+import { installBrowserErrorSnapshot } from "@duo121/ui-error-snapshot-hook-browser";
+import { createFileSink } from "@duo121/ui-error-snapshot-sink-file";
 
 if (import.meta.env.DEV) {
   const sink = createFileSink({ homeDir: import.meta.env.VITE_UI_ERROR_HOME });
@@ -17,6 +17,6 @@ if (import.meta.env.DEV) {
 }
 ```
 
-3. Agent verification: `npx @ui-error-snapshot/cli check`
+3. Agent verification: `npx @duo121/ui-error-snapshot-cli check`
 
 A full runnable example will be added in a follow-up PR.

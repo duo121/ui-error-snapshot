@@ -20,7 +20,7 @@ npm publish -ws --access public --dry-run
 ## After publish
 
 ```bash
-npm install -D @ui-error-snapshot/hook-browser @ui-error-snapshot/sink-file @ui-error-snapshot/cli
+npm install -D @duo121/ui-error-snapshot-hook-browser @duo121/ui-error-snapshot-sink-file @duo121/ui-error-snapshot-cli
 ```
 
 **中文：** [PUBLISHING.zh-CN.md](./PUBLISHING.zh-CN.md)

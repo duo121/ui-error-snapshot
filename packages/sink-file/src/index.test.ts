@@ -2,7 +2,7 @@ import { mkdtemp, readFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { describe, expect, it } from "vitest";
-import { PROBE_MARKER, buildProbeMessage } from "@ui-error-snapshot/core";
+import { PROBE_MARKER, buildProbeMessage } from "@duo121/ui-error-snapshot-core";
 import { createFileSink } from "./index.js";
 
 describe("createFileSink", () => {

@@ -1,4 +1,4 @@
-import { buildProbeMessage, formatUiError } from "@ui-error-snapshot/core";
+import { buildProbeMessage, formatUiError } from "@duo121/ui-error-snapshot-core";
 
 type GlobalErrorHandler = (error: unknown, isFatal?: boolean) => void;
 

@@ -29,7 +29,7 @@
 │                     Dev Host Application                      │
 │  Electron · RN Web · Vite · Next · Expo …                     │
 ├──────────────────────────────────────────────────────────────┤
-│  Hook Layer (@ui-error-snapshot/hook-browser)                 │
+│  Hook Layer (@duo121/ui-error-snapshot-hook-browser)                 │
 │  ├─ window.error / unhandledrejection                           │
 │  ├─ ErrorUtils.setGlobalHandler (RN, optional)                  │
 │  └─ window.__uiErrorSnapshotProbe() (dev verification)          │
@@ -37,13 +37,13 @@
                             │ formatUiError()
                             v
 ┌──────────────────────────────────────────────────────────────┐
-│              @ui-error-snapshot/core                            │
+│              @duo121/ui-error-snapshot-core                            │
 │  normalize · paths · probe marker · dev gate                    │
 └───────────────────────────┬──────────────────────────────────┘
                             │
                             v
 ┌──────────────────────────────────────────────────────────────┐
-│              @ui-error-snapshot/sink-file                       │
+│              @duo121/ui-error-snapshot-sink-file                       │
 │  overwrite write → $UI_ERROR_HOME/ui-error-snapshot.txt         │
 └───────────────────────────┬──────────────────────────────────┘
                             │
@@ -87,8 +87,8 @@ npm run ui-error-snapshot -- path
 ### 浏览器 / Electron 渲染进程
 
 ```ts
-import { installBrowserErrorSnapshot } from "@ui-error-snapshot/hook-browser";
-import { createFileSink } from "@ui-error-snapshot/sink-file";
+import { installBrowserErrorSnapshot } from "@duo121/ui-error-snapshot-hook-browser";
+import { createFileSink } from "@duo121/ui-error-snapshot-sink-file";
 
 const sink = createFileSink();
 
@@ -106,7 +106,7 @@ Electron 场景下，请把 `write`/`clear` 接到 preload IPC，而不是在渲
 完成 UI 相关改动后，Agent 必须运行：
 
 ```bash
-npx @ui-error-snapshot/cli check
+npx @duo121/ui-error-snapshot-cli check
 ```
 
 - **Exit 0** — 快照为空 → 未观察到 uncaught UI 错误
@@ -120,10 +120,10 @@ Cursor、Codex、Claude Code、OpenCode 片段见 [`adapters/`](./adapters/)。
 
 | 包 | 作用 |
 |----|------|
-| `@ui-error-snapshot/core` | 格式化、路径、常量 |
-| `@ui-error-snapshot/sink-file` | Node 文件 sink（覆盖写） |
-| `@ui-error-snapshot/hook-browser` | Window + 可选 RN ErrorUtils hooks |
-| `@ui-error-snapshot/cli` | `check` · `probe` · `path` · `clear` |
+| `@duo121/ui-error-snapshot-core` | 格式化、路径、常量 |
+| `@duo121/ui-error-snapshot-sink-file` | Node 文件 sink（覆盖写） |
+| `@duo121/ui-error-snapshot-hook-browser` | Window + 可选 RN ErrorUtils hooks |
+| `@duo121/ui-error-snapshot-cli` | `check` · `probe` · `path` · `clear` |
 
 ## 路线图
 

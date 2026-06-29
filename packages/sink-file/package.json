@@ -1,5 +1,5 @@
 {
-  "name": "@ui-error-snapshot/sink-file",
+  "name": "@duo121/ui-error-snapshot-sink-file",
   "version": "0.1.0",
   "description": "File sink for ui-error-snapshot (overwrite write, dev-only)",
   "type": "module",
@@ -18,7 +18,7 @@
     "prepublishOnly": "npm run build"
   },
   "dependencies": {
-    "@ui-error-snapshot/core": "0.1.0"
+    "@duo121/ui-error-snapshot-core": "0.1.0"
   },
   "license": "MIT",
   "publishConfig": {

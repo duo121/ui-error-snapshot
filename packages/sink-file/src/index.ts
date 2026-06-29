@@ -4,7 +4,7 @@ import {
   isDevEnvironment,
   resolveSnapshotPaths,
   type ResolveSnapshotPathsOptions,
-} from "@ui-error-snapshot/core";
+} from "@duo121/ui-error-snapshot-core";
 
 export interface FileSinkOptions extends ResolveSnapshotPathsOptions {
   /** When false, all writes are no-ops. Defaults to isDevEnvironment(). */

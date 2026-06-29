@@ -6,7 +6,7 @@
 
 - 用户**不需要** clone ui-error-snapshot 仓库、**不需要**启动额外进程/守护进程。
 - 对业务代码侵入：**入口文件约 5 行** + **package.json 一个 script** + **Agent 规则一段**。
-- 完成后你能运行 `npm run check:ui-error-snapshot`（或 `npx @ui-error-snapshot/cli check`），exit 1 表示有红屏级错误。
+- 完成后你能运行 `npm run check:ui-error-snapshot`（或 `npx @duo121/ui-error-snapshot-cli check`），exit 1 表示有红屏级错误。
 
 ## 合同（必须遵守）
 
@@ -28,15 +28,15 @@
 ### 模式 A — npm devDependency（推荐）
 
 ```bash
-npm install -D @ui-error-snapshot/hook-browser @ui-error-snapshot/sink-file @ui-error-snapshot/cli
+npm install -D @duo121/ui-error-snapshot-hook-browser @duo121/ui-error-snapshot-sink-file @duo121/ui-error-snapshot-cli
 ```
 
 在 **dev 入口最早执行处**（如 `main.tsx` / `_layout.tsx` / `index.js`）：
 
 ```ts
 if (import.meta.env?.DEV ?? process.env.NODE_ENV !== "production") {
-  const { createFileSink } = await import("@ui-error-snapshot/sink-file");
-  const { installBrowserErrorSnapshot } = await import("@ui-error-snapshot/hook-browser");
+  const { createFileSink } = await import("@duo121/ui-error-snapshot-sink-file");
+  const { installBrowserErrorSnapshot } = await import("@duo121/ui-error-snapshot-hook-browser");
   const sink = createFileSink();
   installBrowserErrorSnapshot({
     enabled: true,
@@ -92,6 +92,6 @@ if (import.meta.env?.DEV ?? process.env.NODE_ENV !== "production") {
 ## 参考
 
 - 仓库：https://github.com/duo121/ui-error-snapshot
-- npm 包：`@ui-error-snapshot/*`
+- npm 包：`@duo121/ui-error-snapshot-*`
 
 **English:** [INTEGRATION_PROMPT.en.md](./INTEGRATION_PROMPT.en.md)
