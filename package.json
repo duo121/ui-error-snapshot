@@ -7,7 +7,9 @@
     "packages/*"
   ],
   "scripts": {
+    "clean": "tsc -b --clean",
     "build": "tsc -b",
+    "rebuild": "npm run clean && npm run build",
     "test": "vitest run",
     "typecheck": "tsc -b",
     "lint": "npm run typecheck",
