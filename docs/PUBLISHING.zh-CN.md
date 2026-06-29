@@ -31,12 +31,12 @@ npm publish -ws --access public --dry-run
 
 npm workspaces 按依赖顺序发布：
 
-1. `@ui-error-snapshot/core`
-2. `@ui-error-snapshot/sink-file` · `@ui-error-snapshot/hook-browser`
-3. `@ui-error-snapshot/cli`
+1. `@duo121/ui-error-snapshot-core`
+2. `@duo121/ui-error-snapshot-sink-file` · `@duo121/ui-error-snapshot-hook-browser`
+3. `@duo121/ui-error-snapshot-cli` · `@duo121/ui-error-snapshot-mcp`
 
 ## 用户安装（发布后）
 
 ```bash
-npm install -D @ui-error-snapshot/hook-browser @ui-error-snapshot/sink-file @ui-error-snapshot/cli
+npm install -D @duo121/ui-error-snapshot-hook-browser @duo121/ui-error-snapshot-sink-file @duo121/ui-error-snapshot-cli
 ```

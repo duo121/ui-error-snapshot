@@ -20,66 +20,74 @@ Dev crash → hook → ~/.ui-error-snapshot/ui-error-snapshot.txt → CLI check 
 
 | Phase | Status | Done |
 |-------|--------|------|
-| Phase 1 — Core + npm | ✅ Published | ~95% (CLI 0.1.1 bin fix pending) |
-| Phase 1.5 — Docs & DX | ✅ Mostly done | ~90% (runnable example pending) |
-| Phase 2 — MCP server | ⏳ Not started | 0% |
-| Phase 3 — IDE adapters | 🔶 Skeleton | ~30% |
-| Phase 4 — Advanced | 📋 Planned | 0% |
+| Phase 1 — Core + npm | ✅ Published | 100% |
+| Phase 1.5 — Docs & DX | ✅ Done | 100% |
+| Phase 2 — MCP server | ✅ Published | 100% |
+| Phase 3 — IDE adapters | ✅ Done | 95% |
+| Phase 4 — Advanced | 📋 On demand | 0% |
 
 ---
 
 ## Phase 1 — Core packages + CLI ✅
 
-Delivered on npm as `@duo121/ui-error-snapshot-{core,sink-file,hook-browser,cli}@0.1.0`.
+| Package | npm | Version |
+|---------|-----|---------|
+| core | `@duo121/ui-error-snapshot-core` | 0.1.0 |
+| sink-file | `@duo121/ui-error-snapshot-sink-file` | 0.1.0 |
+| hook-browser | `@duo121/ui-error-snapshot-hook-browser` | 0.1.0 |
+| cli | `@duo121/ui-error-snapshot-cli` | 0.1.1 |
 
-**Remaining:**
-
-- [ ] Publish CLI `0.1.1` (bin field fix)
-- [ ] Align `packages/cli` name with `@duo121/*`
-- [ ] Configure `NPM_TOKEN` for GitHub Actions publish
-
----
-
-## Phase 1.5 — Docs & onboarding ✅ (in progress)
-
-- [x] README hero + demo screenshots
-- [x] Copy-for-agent prompts (zh/en)
-- [ ] Runnable `examples/vite-react`
-- [ ] Update adapters to `@duo121/*` install commands
+**Optional:** GitHub Actions `NPM_TOKEN` for OTP-free publish.
 
 ---
 
-## Phase 2 — MCP server ⏳
+## Phase 1.5 — Docs & DX ✅
 
-Package: `@duo121/ui-error-snapshot-mcp`
-
-| Tool | Purpose |
-|------|---------|
-| `ui_error_snapshot_read` | Read snapshot file |
-| `ui_error_snapshot_clear` | Clear on dev restart |
-| `ui_error_snapshot_probe` | Write probe marker |
-| `ui_error_snapshot_path` | Resolved absolute path |
-
-See Chinese doc for full contract and acceptance criteria.
+- [x] Bilingual README + hero + demo screenshots
+- [x] [COPY_FOR_AGENT.en.md](./COPY_FOR_AGENT.en.md) / [复制给Agent.zh-CN.md](./复制给Agent.zh-CN.md)
+- [x] Runnable [examples/vite-react](../examples/vite-react/)
+- [x] `@duo121/*` scope unified
 
 ---
 
-## Phase 3 — IDE adapters 🔶
+## Phase 2 — MCP server ✅
 
-Polish Cursor / Codex / Claude Code / OpenCode snippets; MCP-first where supported.
+**npm:** `@duo121/ui-error-snapshot-mcp@0.1.3`
+
+Tools: `ui_error_snapshot_read` · `clear` · `probe` · `path`
+
+Setup: [MCP_SETUP.md](./MCP_SETUP.md)
+
+> Note: `npx` may fail inside the ui-error-snapshot monorepo root (workspace link); works in user projects.
+
+---
+
+## Phase 3 — IDE adapters ✅
+
+| IDE | Artifact |
+|-----|----------|
+| Cursor | [adapters/cursor/ui-error-snapshot.mdc](../adapters/cursor/ui-error-snapshot.mdc) |
+| Codex | [adapters/codex/AGENTS.md](../adapters/codex/AGENTS.md) |
+| Claude Code | [adapters/claude-code/CLAUDE.md](../adapters/claude-code/CLAUDE.md) |
+| OpenCode | [adapters/opencode/README.md](../adapters/opencode/README.md) |
 
 ---
 
 ## Phase 4 — Advanced 📋
 
-Watch mode, multi-workspace filenames, Electron IPC template, optional JSON sink.
+| Feature | Priority |
+|---------|----------|
+| GitHub Actions + `NPM_TOKEN` | Medium |
+| `watch` mode | Low |
+| Multi-workspace files | Medium |
+| Electron IPC package | Medium |
+| JSON sink | Low |
 
 ---
 
-## Recommended order
+## Changelog
 
-1. Phase 1 tail (CLI 0.1.1)
-2. Runnable example
-3. Phase 2 MCP
-4. Phase 3 adapters
-5. Phase 4 as needed
+| Date | Change |
+|------|--------|
+| 2026-06-29 | Initial roadmap |
+| 2026-06-29 | Phase 1–3 complete; MCP 0.1.3 on npm |

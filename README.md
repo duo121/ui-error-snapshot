@@ -69,7 +69,7 @@ npx @duo121/ui-error-snapshot-cli check   # non-empty → exit 1 + stack on stde
 │                     Dev Host Application                      │
 │  Electron · RN Web · Vite · Next · Expo …                     │
 ├──────────────────────────────────────────────────────────────┤
-│  Hook Layer (@ui-error-snapshot/hook-browser)                 │
+│  Hook Layer (@duo121/ui-error-snapshot-hook-browser)            │
 │  ├─ window.error / unhandledrejection                           │
 │  ├─ ErrorUtils.setGlobalHandler (RN, optional)                  │
 │  └─ window.__uiErrorSnapshotProbe() (dev verification)          │
@@ -77,13 +77,13 @@ npx @duo121/ui-error-snapshot-cli check   # non-empty → exit 1 + stack on stde
                             │ formatUiError()
                             v
 ┌──────────────────────────────────────────────────────────────┐
-│              @ui-error-snapshot/core                            │
+│              @duo121/ui-error-snapshot-core                       │
 │  normalize · paths · probe marker · dev gate                    │
 └───────────────────────────┬──────────────────────────────────┘
                             │
                             v
 ┌──────────────────────────────────────────────────────────────┐
-│              @ui-error-snapshot/sink-file                       │
+│              @duo121/ui-error-snapshot-sink-file                │
 │  overwrite write → $UI_ERROR_HOME/ui-error-snapshot.txt         │
 └───────────────────────────┬──────────────────────────────────┘
                             │
@@ -127,8 +127,8 @@ npm run ui-error-snapshot -- path
 ### Browser / Electron renderer
 
 ```ts
-import { installBrowserErrorSnapshot } from "@ui-error-snapshot/hook-browser";
-import { createFileSink } from "@ui-error-snapshot/sink-file";
+import { installBrowserErrorSnapshot } from "@duo121/ui-error-snapshot-hook-browser";
+import { createFileSink } from "@duo121/ui-error-snapshot-sink-file";
 
 const sink = createFileSink();
 
@@ -146,7 +146,7 @@ For Electron, wire `write`/`clear` to your preload IPC instead of direct file I/
 After UI-changing work, agents must run:
 
 ```bash
-npx @ui-error-snapshot/cli check
+npx @duo121/ui-error-snapshot-cli check
 ```
 
 - **Exit 0** — snapshot empty → no uncaught UI error observed  
