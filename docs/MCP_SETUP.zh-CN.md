@@ -13,20 +13,22 @@
 
 ## Cursor
 
-`.cursor/mcp.json` 或 Cursor Settings → MCP：
+`.cursor/mcp.json` 或 Cursor Settings → MCP（推荐 **0.1.3+**，含 bin 包装器）：
 
 ```json
 {
   "mcpServers": {
     "ui-error-snapshot": {
       "command": "npx",
-      "args": ["-y", "@duo121/ui-error-snapshot-mcp"]
+      "args": ["-y", "@duo121/ui-error-snapshot-mcp@0.1.3"]
     }
   }
 }
 ```
 
-本地开发（仓库内）：
+> **0.1.2 及更早：** `npx` 在 npm workspace monorepo 内可能报 `command not found`（bin 为 symlink）。请升级到 **0.1.3** 或暂用下方 `node` 路径。
+
+本地开发（仓库内，无需 npx）：
 
 ```json
 {
