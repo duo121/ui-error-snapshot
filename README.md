@@ -7,8 +7,6 @@
 
 When your dev app hits a red screen, agents usually guess from screenshots or stale logs. **ui-error-snapshot** captures uncaught renderer errors into a single local file with a stable contract. Any agent loop (Cursor, Codex CLI, Claude Code, OpenCode, CI) can `check` before claiming success.
 
-Born from production use in [Agnx](https://github.com/getagnx/agnx).
-
 **中文文档：** [README.zh-CN.md](./README.zh-CN.md)
 
 ---

@@ -7,8 +7,6 @@
 
 开发时页面一旦 uncaught 报错，Agent 往往只能靠截图或过时日志猜。**ui-error-snapshot** 在 dev 环境捕获未处理错误，写入**单一本地文件**并遵循稳定合同。任何 Agent 循环（Cursor、Codex CLI、Claude Code、OpenCode、CI）在声称「完成」前可运行 `check` 验收。
 
-源自 [Agnx](https://github.com/getagnx/agnx) 生产实践。
-
 **English:** [README.md](./README.md)
 
 ---
