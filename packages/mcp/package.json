@@ -1,15 +1,20 @@
 {
   "name": "@duo121/ui-error-snapshot-mcp",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "MCP server for ui-error-snapshot — read/clear/probe dev UI crash files",
   "type": "module",
   "bin": {
     "ui-error-snapshot-mcp": "dist/server.js"
   },
   "main": "./dist/server.js",
-  "files": ["dist"],
+  "files": [
+    "dist/server.js",
+    "dist/server.d.ts",
+    "dist/tools.js",
+    "dist/tools.d.ts"
+  ],
   "scripts": {
-    "build": "tsc -p tsconfig.json",
+    "build": "tsc -p tsconfig.json && chmod +x dist/server.js",
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "prepublishOnly": "npm run build"
   },
