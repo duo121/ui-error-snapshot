@@ -1,5 +1,8 @@
 # ui-error-snapshot
 
+<!-- Hero: save GPT Image output as docs/assets/hero.png, then uncomment -->
+<!-- ![ui-error-snapshot — capture dev red-screen errors for AI agents without screenshots](./docs/assets/hero.png) -->
+
 > Dev UI crash snapshots that AI coding agents can read — no screenshots required.
 
 When your dev app hits a red screen, agents usually guess from screenshots or stale logs. **ui-error-snapshot** captures uncaught renderer errors into a single local file with a stable contract. Any agent loop (Cursor, Codex CLI, Claude Code, OpenCode, CI) can `check` before claiming success.
@@ -19,6 +22,34 @@ Born from production use in [Agnx](https://github.com/getagnx/agnx).
 The agent will: `npm install` → wire hooks → add check scripts → add agent rules.
 
 Full prompts: [docs/COPY_FOR_AGENT.en.md](./docs/COPY_FOR_AGENT.en.md) · [docs/复制给Agent.zh-CN.md](./docs/复制给Agent.zh-CN.md)
+
+---
+
+## At a glance: what problem does this solve?
+
+| Before | With ui-error-snapshot |
+|--------|------------------------|
+| Red screen → screenshot or describe to the agent | Errors **auto-written** to `~/.ui-error-snapshot/ui-error-snapshot.txt` |
+| Agent guesses from stale logs | Agent runs `check` and **reads the stack** |
+| Manual handoff every time | Integrate once; **every agent loop** can verify |
+
+### ① Dev red screen (Electron · RN Web · Vite …)
+
+![Dev red-screen example: Uncaught Error with source line and call stack](./docs/assets/demo-red-screen.png)
+
+### ② Agent reads the same error via CLI (no screenshot)
+
+After hooks write the crash to disk, any agent loop can run:
+
+```bash
+npx @duo121/ui-error-snapshot-cli check   # non-empty → exit 1 + stack on stderr
+```
+
+![CLI check output: agent reads RangeError and full stack trace](./docs/assets/demo-cli-check.png)
+
+> Screenshots from real [Agnx](https://github.com/getagnx/agnx) dev usage. Same flow in your project after integration.
+
+**Hero image prompt (GPT Image 2):** [docs/HERO_IMAGE_PROMPT.zh-CN.md](./docs/HERO_IMAGE_PROMPT.zh-CN.md)
 
 ---
 

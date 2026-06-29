@@ -1,5 +1,8 @@
 # ui-error-snapshot
 
+<!-- Hero 头图：用 GPT Image 2 生成后保存为 docs/assets/hero.png，再取消下行注释 -->
+<!-- ![ui-error-snapshot — Dev 红屏错误自动写入本地，AI Agent 无需截图即可读取](./docs/assets/hero.png) -->
+
 > 把 Dev 红屏错误写入本地文件，让 AI Agent 直接读取 —— 无需截图。
 
 开发时页面一旦 uncaught 报错，Agent 往往只能靠截图或过时日志猜。**ui-error-snapshot** 在 dev 环境捕获未处理错误，写入**单一本地文件**并遵循稳定合同。任何 Agent 循环（Cursor、Codex CLI、Claude Code、OpenCode、CI）在声称「完成」前可运行 `check` 验收。
@@ -19,6 +22,34 @@
 Agent 会自动：`npm install` 依赖 → 改入口 hook → 加 `check` 脚本 → 写 Agent 规则。
 
 完整提示词（给 Agent 读）：[docs/复制给Agent.zh-CN.md](./docs/复制给Agent.zh-CN.md) · [docs/COPY_FOR_AGENT.en.md](./docs/COPY_FOR_AGENT.en.md)
+
+---
+
+## 一眼看懂：它解决什么痛点？
+
+| 以前 | 有了 ui-error-snapshot |
+|------|----------------------|
+| Dev 红屏 → 你只能截图或口述给 Agent | 错误**自动写入** `~/.ui-error-snapshot/ui-error-snapshot.txt` |
+| Agent 靠猜、靠过时日志 | Agent 跑 `check`，**直接读 stack** |
+| 每次都要人工介入 | 集成一次，**所有 Agent 循环**都能验收 |
+
+### ① Dev 红屏发生（Electron / RN Web / Vite …）
+
+![Dev 红屏报错示例：Uncaught Error，含源码行号与 Call Stack](./docs/assets/demo-red-screen.png)
+
+### ② Agent 用 CLI 读取同一错误（无需截图）
+
+hook 把红屏内容写入本地文件后，任何 Agent 循环只需：
+
+```bash
+npx @duo121/ui-error-snapshot-cli check   # 有错误 → exit 1 + 打印 stack
+```
+
+![CLI check 输出：Agent 直接读到 RangeError 与完整 stack trace](./docs/assets/demo-cli-check.png)
+
+> 上图来自 [Agnx](https://github.com/getagnx/agnx) 真实 dev 场景。你的项目集成后流程相同。
+
+**Hero 头图提示词（GPT Image 2）：** [docs/HERO_IMAGE_PROMPT.zh-CN.md](./docs/HERO_IMAGE_PROMPT.zh-CN.md)
 
 ---
 
