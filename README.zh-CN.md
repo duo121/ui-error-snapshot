@@ -152,7 +152,7 @@ npx @ui-error-snapshot/cli check
 - **Exit 0** — 快照为空 → 未观察到 uncaught UI 错误
 - **Exit 1** — stderr 打印 stack → 先修复再结束任务
 
-Cursor、Codex、Claude Code、OpenCode 片段见 [`adapters/`](./adapters/)。
+Cursor、Codex、Claude Code、OpenCode 适配器见 [`adapters/`](./adapters/)（含可复制 `.mdc` / `AGENTS.md` 片段）。
 
 **npm 发布：** [docs/PUBLISHING.zh-CN.md](./docs/PUBLISHING.zh-CN.md) · [docs/PUBLISHING.md](./docs/PUBLISHING.md)
 
@@ -175,7 +175,7 @@ Cursor、Codex、Claude Code、OpenCode 片段见 [`adapters/`](./adapters/)。
 | **Phase 1** — core + sink + hook + CLI + npm | ✅ 100% | `@duo121/*` 包名统一；CLI `0.1.1` 已发 |
 | **Phase 1.5** — 文档与开箱体验 | ✅ 100% | Vite example 可运行 |
 | **Phase 2** — MCP server | ✅ ~95% | 代码+测试完成；npm 发布待确认 |
-| **Phase 3** — IDE 适配器 | 🔶 ~30% | Cursor / Codex / Claude / OpenCode 规则完善 |
+| **Phase 3** — IDE 适配器 | ✅ ~85% | 完整 Cursor `.mdc` + MCP 优先规则；OpenCode 待版本确认 |
 | **Phase 4** — 高级能力 | 📋 规划 | watch、多 workspace、Electron IPC 模板 |
 
 **建议下一步：** 发布 CLI `0.1.1` → 可运行 Vite example → Phase 2 MCP。

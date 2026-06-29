@@ -1,0 +1,42 @@
+---
+description: Dev UI 红屏快照验收 — Agent 完成 UI 相关改动后必须检查
+globs:
+alwaysApply: true
+---
+
+# UI error snapshot gate (dev)
+
+完成任何可能影响 dev 界面（Web / Electron 渲染进程 / RN Web）的改动后，**在声称任务完成之前**必须验收红屏快照。
+
+## 优先：MCP（若已配置 `ui-error-snapshot` server）
+
+1. 调用 `ui_error_snapshot_read`
+2. 若 `hasError` 为 true（或返回内容含 stack）→ 读取错误、修复、再次 read，直到无错误
+3. 需要验证写入链路时：`ui_error_snapshot_probe`
+
+## 备选：CLI
+
+```bash
+npx @duo121/ui-error-snapshot-cli check
+```
+
+- **Exit 0** — 快照为空，未观察到 uncaught UI 错误
+- **Exit 1** — stderr 含 stack，必须先修复
+
+辅助命令：
+
+```bash
+npx @duo121/ui-error-snapshot-cli path    # 快照路径
+npx @duo121/ui-error-snapshot-cli probe   # 探针验收
+```
+
+## 约定
+
+- 默认路径：`~/.ui-error-snapshot/ui-error-snapshot.txt`（`UI_ERROR_HOME` 可覆盖）
+- 浏览器探针：`window.__uiErrorSnapshotProbe?.()` 后重新 check / read
+- **仅 dev**；不要在 production 写入
+
+## 集成文档
+
+- 一键集成：https://github.com/duo121/ui-error-snapshot/blob/main/docs/复制给Agent.zh-CN.md
+- MCP 配置：https://github.com/duo121/ui-error-snapshot/blob/main/docs/MCP_SETUP.zh-CN.md

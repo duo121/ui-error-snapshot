@@ -1,19 +1,28 @@
 # Claude Code snippet
 
-Add to `CLAUDE.md`:
+追加到项目根 `CLAUDE.md`：
 
 ```markdown
 ## UI error snapshot
 
-When verifying dev UI work, run:
+When verifying dev UI work:
+
+### MCP (preferred)
+
+If `ui-error-snapshot` MCP is configured, call `ui_error_snapshot_read` before completing UI tasks.
+Fix any error in the snapshot before claiming success.
+
+Setup: https://github.com/duo121/ui-error-snapshot/blob/main/docs/MCP_SETUP.md
+
+### CLI (fallback)
 
 ```bash
-npx @ui-error-snapshot/cli check
+npx @duo121/ui-error-snapshot-cli check
 ```
 
-Non-zero exit means a red-screen-level error was written to the snapshot file. Read stderr and fix before completing the task.
+Non-zero exit → red-screen error in snapshot file. Read stderr and fix.
 
-Path: `npx @ui-error-snapshot/cli path`
+```bash
+npx @duo121/ui-error-snapshot-cli path
 ```
-
-Phase 2 will ship an MCP server with `ui_error_snapshot_read` / `ui_error_snapshot_clear` tools — see [docs/MCP_SETUP.zh-CN.md](../../docs/MCP_SETUP.zh-CN.md).
+```

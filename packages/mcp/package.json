@@ -1,9 +1,11 @@
 {
   "name": "@duo121/ui-error-snapshot-mcp",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "MCP server for ui-error-snapshot — read/clear/probe dev UI crash files",
   "type": "module",
-  "bin": "./dist/server.js",
+  "bin": {
+    "ui-error-snapshot-mcp": "dist/server.js"
+  },
   "main": "./dist/server.js",
   "files": ["dist"],
   "scripts": {

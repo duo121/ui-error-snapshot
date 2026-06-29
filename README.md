@@ -152,7 +152,7 @@ npx @ui-error-snapshot/cli check
 - **Exit 0** — snapshot empty → no uncaught UI error observed  
 - **Exit 1** — stderr prints the stack → fix before finishing
 
-See [`adapters/`](./adapters/) for Cursor, Codex, Claude Code, and OpenCode snippets.
+See [`adapters/`](./adapters/) for copy-ready Cursor `.mdc`, Codex `AGENTS.md`, Claude Code, and OpenCode snippets.
 
 **npm publish:** [docs/PUBLISHING.md](./docs/PUBLISHING.md) · [docs/PUBLISHING.zh-CN.md](./docs/PUBLISHING.zh-CN.md)
 
@@ -175,7 +175,7 @@ Full plan: [docs/ROADMAP.md](./docs/ROADMAP.md) · [中文](./docs/路线图_ROA
 | **Phase 1** — core + sink + hook + CLI + npm | ✅ 100% | `@duo121/*` aligned; CLI `0.1.1` published |
 | **Phase 1.5** — docs & onboarding | ✅ 100% | Runnable Vite example |
 | **Phase 2** — MCP server | ✅ ~95% | Code + tests; npm publish TBD |
-| **Phase 3** — IDE adapters | 🔶 ~30% | Cursor / Codex / Claude / OpenCode polish |
+| **Phase 3** — IDE adapters | ✅ ~85% | Full Cursor `.mdc` + MCP-first rules; OpenCode TBD per version |
 | **Phase 4** — advanced | 📋 planned | watch, multi-workspace, Electron IPC template |
 
 **Suggested next:** publish CLI `0.1.1` → runnable Vite example → Phase 2 MCP.
